@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        .videos-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px; /* تباعد بين الفيديوهات */
+        }
+        .video {
+            width: 80vw; /* استخدم عرض الشاشة بشكل كامل */
+            max-width: 600px; /* حد أقصى للعرض للحفاظ على نسبة العرض إلى الارتفاع */
+            height: auto; /* للسماح بتغيير الارتفاع استنادًا إلى نسبة العرض إلى الارتفاع الأصلية */
+        }
+    </style>
+</head>
+<body>
+    <h2>Iron Man Mark 2</h2>
+
+    <div class="videos-container">
+        <video class="video" controls>
+            <source src="https://harmash.com/tutorials/html/videos/iron-man-mark-2.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+
+        <video class="video" controls>
+            <source src="https://videocdn.cdnpk.net/videos/48e51fcc-05a3-4854-847b-a7e48f7b95e1/horizontal/previews/clear/large.mp4?token=exp=1719702473~hmac=d2e8cab32f959b0f8c35d242dc9079f0e062257b9d123e42c88c2684e29f3394" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+
+        <video class="video" controls>
+            <source src="https://example.com/video3.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var container = document.querySelector('.videos-container');
+            var videos = Array.from(container.querySelectorAll('.video'));
+            
+            videos.sort(function() {
+                return 0.5 - Math.random(); // توليد ترتيب عشوائي
+            });
+            
+            videos.forEach(function(video) {
+                container.appendChild(video); // إعادة ترتيب العناصر
+            });
+        });
+    </script>
+
+</body>
+</html>
